@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/room_list">
+
+
+    <fragment
+        android:id="@+id/room_list"
+        android:name="com.space.test.ui.start.RoomListFragment"
+        android:label="Rooms"
+        tools:layout="@layout/fragment_room_list">
+        <action
+            android:id="@+id/action_room_list_to_join_room"
+            app:destination="@id/join_room" />
+        <action
+            android:id="@+id/action_room_list_to_create_room"
+            app:destination="@id/create_room" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/create_room"
+        android:name="com.space.test.ui.create.CreateRoomFragment"
+        android:label="Create Room"
+        tools:layout="@layout/fragment_create_room" />
+
+    <fragment
+        android:id="@+id/join_room"
+        android:name="com.space.test.ui.join.JoinRoomFragment"
+        android:label="Join Room"
+        tools:layout="@layout/fragment_join_room">
+        <argument
+            android:name="roomID"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
